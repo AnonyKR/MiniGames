@@ -68,4 +68,12 @@ public class deck {
 		Collections.shuffle(this.cards);
 	}
 
+	public int pullACard() {
+		if (this.cards.size() < 1) {
+			return -1;
+		}
+		holdIntTemp = this.cards.get(0);
+		this.cards.remove(0);
+		return holdIntTemp;
+	}
 }
