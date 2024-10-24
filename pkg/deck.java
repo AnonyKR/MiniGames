@@ -70,10 +70,38 @@ public class deck {
 
 	public int pullACard() {
 		if (this.cards.size() < 1) {
-			return -1;
+			this.shuffle();
 		}
 		holdIntTemp = this.cards.get(0);
 		this.cards.remove(0);
 		return holdIntTemp;
+	}
+
+	public ArrayList<Integer> pullCards(int numOfCards) {
+		ArrayList<Integer> returnCards = new ArrayList<Integer>();
+		if (this.cards.size() <= numOfCards) {
+			boolean moreDraws = true;
+			if (this.cards.size() == numOfCards) {
+				moreDraws = false;
+			}
+			returnCards.addAll(this.cards);
+			this.shuffle();
+			if (!moreDraws) {
+				return returnCards;
+			}
+		}
+		while(returnCards.size() != numOfCards) {
+			returnCards.add(this.cards.get(0));
+			this.cards.remove(0);
+		}
+		return returnCards;
+	}
+
+	public void returnCard(int cardReturned) {
+		this.discards.add(cardReturned);
+	}
+
+	public void returnCards(ArrayList<int> cardsReturned) {
+		this.discards.addAll(cardsReturned);
 	}
 }
