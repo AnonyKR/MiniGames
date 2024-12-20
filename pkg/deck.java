@@ -72,7 +72,7 @@ public class deck {
 		if (this.cards.size() < 1) {
 			this.shuffle();
 		}
-		holdIntTemp = this.cards.get(0);
+		int holdIntTemp = this.cards.get(0);
 		this.cards.remove(0);
 		return holdIntTemp;
 	}
@@ -101,7 +101,7 @@ public class deck {
 		this.discards.add(cardReturned);
 	}
 
-	public void returnCards(ArrayList<int> cardsReturned) {
+	public void returnCards(ArrayList<Integer> cardsReturned) {
 		this.discards.addAll(cardsReturned);
 	}
 }
