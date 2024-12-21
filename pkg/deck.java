@@ -1,24 +1,22 @@
 package pkg;
-import java.util.Scanner;
-import java.util.Random;
 import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class deck {
+public class Deck {
 	ArrayList<Integer> cards;
 	ArrayList<Integer> discards;
-	public deck() {
-		this.cards = new ArrayList<Integer>();
-		this.discards = new ArrayList<Integer>();
+	public Deck() {
+		this.cards = new ArrayList<>();
+		this.discards = new ArrayList<>();
 		for (int i = 0; i < 52; i++) {
 			this.cards.add(i);
 		}
 	}
 	
-	public deck(int setsOfDecks) {
-		this.cards = new ArrayList<Integer>();
-		this.discards = new ArrayList<Integer>();
+	public Deck(int setsOfDecks) {
+		this.cards = new ArrayList<>();
+		this.discards = new ArrayList<>();
 		for (int i = 0; i < 52; i++) {
 			for (int j = 0; j < setsOfDecks; j++)
 				this.cards.add(i);
@@ -29,19 +27,19 @@ public class deck {
 		String shape;
 		switch(card / 13) {
 			case 0:
-				shape = new String("\u2660"); //spade filled
+				shape = "\u2660"; //spade filled
 				break;
 			case 1:
-				shape = new String("\u2663"); //clubs filled
+				shape = "\u2663"; //clubs filled
 				break;
 			case 2:
-				shape = new String("\u2661"); //heart empty
+				shape = "\u2661"; //heart empty
 				break;
 			case 3:
-				shape = new String("\u2662"); //diamond empty
+				shape = "\u2662"; //diamond empty
 				break;
 			default:
-				shape = new String("error");
+				shape = "error";
 		}
 		switch(card % 13) {
 			case 9:
@@ -72,27 +70,15 @@ public class deck {
 		if (this.cards.size() < 1) {
 			this.shuffle();
 		}
-		holdIntTemp = this.cards.get(0);
+		int holdIntTemp = this.cards.get(0);
 		this.cards.remove(0);
 		return holdIntTemp;
 	}
 
 	public ArrayList<Integer> pullCards(int numOfCards) {
-		ArrayList<Integer> returnCards = new ArrayList<Integer>();
-		if (this.cards.size() <= numOfCards) {
-			boolean moreDraws = true;
-			if (this.cards.size() == numOfCards) {
-				moreDraws = false;
-			}
-			returnCards.addAll(this.cards);
-			this.shuffle();
-			if (!moreDraws) {
-				return returnCards;
-			}
-		}
+		ArrayList<Integer> returnCards = new ArrayList<>();
 		while(returnCards.size() != numOfCards) {
-			returnCards.add(this.cards.get(0));
-			this.cards.remove(0);
+			returnCards.add(this.pullACard());
 		}
 		return returnCards;
 	}
@@ -101,7 +87,7 @@ public class deck {
 		this.discards.add(cardReturned);
 	}
 
-	public void returnCards(ArrayList<int> cardsReturned) {
+	public void returnCards(ArrayList<Integer> cardsReturned) {
 		this.discards.addAll(cardsReturned);
 	}
 }
