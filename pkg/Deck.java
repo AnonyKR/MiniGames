@@ -2,7 +2,6 @@ package pkg;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 public class Deck {
 	ArrayList<Integer> cards;
 	ArrayList<Integer> discards;
@@ -90,4 +89,5 @@ public class Deck {
 	public void returnCards(ArrayList<Integer> cardsReturned) {
 		this.discards.addAll(cardsReturned);
 	}
+
 }
