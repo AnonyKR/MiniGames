@@ -3,19 +3,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class player {
+public class Player {
     private double money;
     private Board game;
     private Deck usedDeck;
     private ArrayList<Integer> hand;
 
-    public player() {
+    public Player() {
         money = 0.0;
         game = new Board();
         usedDeck = this.game.usingDeck();
     }
 
-    public player(double money, Board game) {
+    public Player(double money, Board game) {
         this.money = money;
         this.game = game;
         usedDeck = this.game.usingDeck();
