@@ -35,4 +35,8 @@ public class Board {
     public Deck usingDeck() {
         return this.dealer;
     }
+
+    public void updateDeck(Deck editedDeck) {
+        this.dealer = editedDeck;
+    }
 }
