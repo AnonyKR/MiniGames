@@ -24,6 +24,14 @@ public class Board {
         return temp;
     } 
 
+    public void modifyPool(int power) {
+        pool *= power;
+    }
+
+    public void modifyPool(double money) {
+        pool += money;
+    }
+
     public Deck usingDeck() {
         return this.dealer;
     }
