@@ -1,4 +1,5 @@
 package pkg;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -49,6 +50,10 @@ public class Player {
         for (int i = 0; i < hand.size(); i++) {
             System.out.print(Deck.cardIntToStr(hand.get(i)) + "  ");
         }
+    }
+    
+    public ArrayList<Integer> getRaw() {
+        return hand;
     }
 
     public void bet(double money) {
