@@ -27,18 +27,18 @@ public class Deck {
 	
 	public static String cardIntToStr(int card) {
 		String shape;
-		switch(card / 13) {
+		switch(card / 13) { // Using unicode later since it doesn't work for me...
 			case 0:
-				shape = "\u2660"; //spade filled
+				shape = "S";//"\u2660"; //spade filled
 				break;
 			case 1:
-				shape = "\u2663"; //clubs filled
+				shape = "C"; //"\u2663"; //clubs filled
 				break;
 			case 2:
-				shape = "\u2661"; //heart empty
+				shape = "H"; //\u2661"; //heart empty
 				break;
 			case 3:
-				shape = "\u25C7"; //diamond empty
+				shape = "D"; //"\u25c7"; //diamond empty
 				break;
 			default:
 				shape = "error";
