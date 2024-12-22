@@ -13,12 +13,14 @@ public class Player {
         money = 0.0;
         game = new Board();
         usedDeck = this.game.usingDeck();
+        hand = new ArrayList<>();
     }
 
     public Player(double money, Board game) {
         this.money = money;
         this.game = game;
         usedDeck = this.game.usingDeck();
+        hand = new ArrayList<>();
     }
 
     public void gain(double money) {
@@ -28,16 +30,25 @@ public class Player {
     public void pullACard() {
         hand.add(usedDeck.pullACard());
         Collections.sort(hand, Comparator.comparing(Integer::valueOf));
+        game.updateDeck(usedDeck);
     }
 
     public void pullCards(int num) {
         hand.addAll(usedDeck.pullCards(num));
         Collections.sort(hand, Comparator.comparing(Integer::valueOf));
+        game.updateDeck(usedDeck);
     }
 
     public void returnHand() {
         usedDeck.returnCards(hand);
         hand.clear();
+    }
+
+    public void showHand() {
+        System.out.println("Current hand: ");
+        for (int i = 0; i < hand.size(); i++) {
+            System.out.print(Deck.cardIntToStr(hand.get(i)) + "  ");
+        }
     }
 
     public void bet(double money) {
@@ -55,5 +66,13 @@ public class Player {
 
     public ArrayList<Integer> getHand() {
         return hand;
+    }
+
+    public void updateBoard(Board changeBoard) {
+        game = changeBoard;
+    }
+
+    public Board getBoard() {
+        return game;
     }
 }

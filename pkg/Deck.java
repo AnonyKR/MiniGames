@@ -11,6 +11,7 @@ public class Deck {
 		for (int i = 0; i < 52; i++) {
 			this.cards.add(i);
 		}
+		this.shuffle();
 	}
 	
 	public Deck(int setsOfDecks) {
@@ -20,6 +21,7 @@ public class Deck {
 			for (int j = 0; j < setsOfDecks; j++)
 				this.cards.add(i);
 		}
+		this.shuffle();
 	}
 	
 	public static String cardIntToStr(int card) {
@@ -35,11 +37,12 @@ public class Deck {
 				shape = "\u2661"; //heart empty
 				break;
 			case 3:
-				shape = "\u2662"; //diamond empty
+				shape = "\u25C7"; //diamond empty
 				break;
 			default:
 				shape = "error";
 		}
+		shape += " ";
 		switch(card % 13) {
 			case 9:
 				shape += "J";
@@ -54,7 +57,7 @@ public class Deck {
 				shape += "A";
 				break;
 			default:
-				shape += (card + 2);
+				shape += (card % 13 + 2);
 		}
 		return shape;
 	}
