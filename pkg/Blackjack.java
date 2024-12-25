@@ -24,6 +24,14 @@ public class Blackjack{
         this.player = player;
     }
 
+    public void playRound() {
+
+    }
+
+    public void play() {
+        
+    }
+
     public static int sum(ArrayList<Integer> cards) { // -1 is returned if it is bust
         int sum = 0;
         for (int i = 0; i < cards.size(); i++) {
