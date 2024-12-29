@@ -59,6 +59,36 @@ class Trpg {
             System.out.println("|            |");
             System.out.println("--------------");
         }
+        if(first==1&&second==3){
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|   @     @  |");
+            System.out.println("|            |");
+            System.out.println("|      @     |");
+            System.out.println("--------------");
+
+        }
+        if(first==3&&second==1){
+            System.out.println("--------------");
+            System.out.pirntln("|   @     @  |");
+            System.out.println("|            |");
+            System.out.println("|      @     |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+
+        }
+        int x=0;
+        x=first+second;
+        return x;
+
         
     }
 }
