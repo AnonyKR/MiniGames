@@ -1,0 +1,64 @@
+package pkg.*;
+import java.util.*;
+
+class Trpg {
+    public static void main(Static args[]){
+        int first=(math.random()*9)+1;
+        int second=(math.random()*9)+1;
+        System.out.println(rollDice(first,second));
+        
+    }
+    public int rollDice(int first, int second){
+        if(first==1&&second==1){
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+
+        }
+        if(first==1&&second==2){
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|   @    @   |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+
+        }
+        if(first==2&&second==1){
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|   @    @   |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+        }
+        if(first==2&&second==2){
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|   @    @   |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|   @    @   |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+        }
+        
+    }
+}
