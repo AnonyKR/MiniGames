@@ -1,6 +1,8 @@
-package pkg;
+package pkg.blackjack;
 
 import java.util.ArrayList;
+import pkg.Board;
+import pkg.Player;
 
 public class Blackjack{
     private Player player;
@@ -9,11 +11,13 @@ public class Blackjack{
     public Blackjack() {
         player = new Player();
         board = new Board(6);
+        player.updateBoard(board);
     }
 
     public Blackjack(Player player) {
         this.player = player;
         board = new Board(6);
+        player.updateBoard(board);
     }
 
     public Player getPlayer() {
@@ -25,7 +29,17 @@ public class Blackjack{
     }
 
     public void playRound() {
-        
+        //1. betting
+
+        //2. cards given
+
+        //3. split (*1 if 21 immediate) or blackjack (*1.5)
+
+        //4. hit, stay, double down
+
+        //5. dealer gets card (17+ stay)
+
+        //6. get money
     }
 
     public void play() {
