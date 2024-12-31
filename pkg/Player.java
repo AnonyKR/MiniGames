@@ -34,14 +34,16 @@ public class Player {
 
     public void pullACard() {
         hand.add(usedDeck.pullACard());
-        Collections.sort(hand, Comparator.comparing(Integer::valueOf));
         game.updateDeck(usedDeck);
     }
 
     public void pullCards(int num) {
         hand.addAll(usedDeck.pullCards(num));
-        Collections.sort(hand, Comparator.comparing(Integer::valueOf));
         game.updateDeck(usedDeck);
+    }
+
+    public void sortHand() {
+        Collections.sort(hand, Comparator.comparing(Integer::valueOf));
     }
 
     public void returnHand() {
@@ -91,6 +93,17 @@ public class Player {
         while (true) {
             double answer = this.askDouble(question);
             if (answer - ((int) answer) == 0.0) {
+                return (int) answer;
+            } else {
+                System.out.println("Invalid input. Please try again");
+            }
+        }
+    }
+
+    public int askInt(String question, boolean positive) {
+        while (true) {
+            double answer = this.askDouble(question);
+            if (answer - ((int) answer) == 0.0 && answer >= 0.0) {
                 return (int) answer;
             } else {
                 System.out.println("Invalid input. Please try again");

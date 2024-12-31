@@ -2,22 +2,29 @@ package pkg.blackjack;
 
 import java.util.ArrayList;
 import pkg.Board;
+import pkg.Deck;
 import pkg.Player;
 
 public class Blackjack{
     private Player player;
     private Board board;
+    private ArrayList<Integer> dealer;
+    private Deck deck;
 
     public Blackjack() {
         player = new Player();
         board = new Board(6);
         player.updateBoard(board);
+        deck = board.usingDeck();
+        dealer = new ArrayList<>();
     }
 
     public Blackjack(Player player) {
         this.player = player;
         board = new Board(6);
         player.updateBoard(board);
+        deck = board.usingDeck();
+        dealer = new ArrayList<>();
     }
 
     public Player getPlayer() {
@@ -30,9 +37,12 @@ public class Blackjack{
 
     public void playRound() {
         //1. betting
-
+        player.bet(player.askInt("How much would you like to bet? (int)"));
         //2. cards given
-
+        player.pullCards(2);
+        board = player.getBoard();
+        deck = board.usingDeck();
+        dealer.addAll(deck.pullCards(2));
         //3. split (*1 if 21 immediate) or blackjack (*1.5)
 
         //4. hit, stay, double down
