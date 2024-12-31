@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import pkg.Board;
 import pkg.Deck;
 import pkg.Player;
+import pkg.Tools;
 
 public class Blackjack{
     private Player player;
@@ -37,7 +38,7 @@ public class Blackjack{
 
     public void playRound() {
         //1. betting
-        player.bet(player.askInt("How much would you like to bet? (int)"));
+        player.bet(Tools.askInt("How much would you like to bet? (int)"));
         //2. cards given
         player.pullCards(2);
         board = player.getBoard();
@@ -55,7 +56,7 @@ public class Blackjack{
     public void play() {
         while(true) {
             this.playRound();
-            if(!player.askYesOrNo("Play again? (Y/N)")) {
+            if(!Tools.askYesOrNo("Play again? (Y/N)")) {
                 break;
             }
         }
