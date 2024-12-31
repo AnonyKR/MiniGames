@@ -214,6 +214,67 @@ class Trpg {
             System.out.println("--------------");
 
         }
+        if(first==3&&second==4){
+            System.out.println("--------------");
+            System.out.pirntln("|   @     @  |");
+            System.out.println("|            |");
+            System.out.println("|      @     |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|   @     @  |");
+            System.out.println("|            |");
+            System.out.println("|   @     @  |");
+            System.out.println("--------------");
+        }
+        if(first==2&&second==5){
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|   @    @   |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|   @     @  |");
+            System.out.println("|      @     |");
+            System.out.println("|   @     @  |");
+            System.out.println("--------------");
+        }
+        if(first==5&&second==2){
+            System.out.println("--------------");
+            System.out.pirntln("|   @     @  |");
+            System.out.println("|      @     |");
+            System.out.println("|   @     @  |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|   @    @   |");
+            System.out.println("|            |");
+            System.out.println("--------------");
+        }
+        if(first==1&&second==6){
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------"); 
+            System.out.println("--------------");
+            System.out.pirntln("|   @    @   |");
+            System.out.println("|   @    @   |");
+            System.out.println("|   @    @   |");
+            System.out.println("--------------");
+        }
+        if(first==6&&second==1){
+            System.out.println("--------------");
+            System.out.pirntln("|   @    @   |");
+            System.out.println("|   @    @   |");
+            System.out.println("|   @    @   |");
+            System.out.println("--------------");
+            System.out.println("--------------");
+            System.out.pirntln("|            |");
+            System.out.println("|      @     |");
+            System.out.println("|            |");
+            System.out.println("--------------"); 
+        }
+        //8
         
 
         
