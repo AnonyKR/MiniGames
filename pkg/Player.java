@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 public class Player {
-    private double money;
+    private int money;
     private Board game;
     private Deck usedDeck;
     private ArrayList<Integer> hand;
@@ -14,13 +14,13 @@ public class Player {
 
     public Player() {
         sc = new Scanner(System.in);
-        money = 0.0;
+        money = 0;
         game = new Board();
         usedDeck = this.game.usingDeck();
         hand = new ArrayList<>();
     }
 
-    public Player(double money, Board game) {
+    public Player(int money, Board game) {
         sc = new Scanner(System.in);
         this.money = money;
         this.game = game;
@@ -28,7 +28,7 @@ public class Player {
         hand = new ArrayList<>();
     }
 
-    public void gain(double money) {
+    public void gain(int money) {
         this.money += money;
     }
 
@@ -98,7 +98,7 @@ public class Player {
         }
     }
 
-    public void bet(double money) {
+    public void bet(int money) {
         this.money -= money;
         game.bet(money);
     }
@@ -107,7 +107,7 @@ public class Player {
         money += game.prizeMoney();
     }
 
-    public double getMoney() {
+    public int getMoney() {
         return money;
     }
 

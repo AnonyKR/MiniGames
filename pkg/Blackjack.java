@@ -25,11 +25,16 @@ public class Blackjack{
     }
 
     public void playRound() {
-
+        
     }
 
     public void play() {
-        
+        while(true) {
+            this.playRound();
+            if(!player.askYesOrNo("Play again? (Y/N)")) {
+                break;
+            }
+        }
     }
 
     public static int sum(ArrayList<Integer> cards) { // -1 is returned if it is bust
