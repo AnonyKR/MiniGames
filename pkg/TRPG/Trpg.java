@@ -1,11 +1,7 @@
-package pkg.*;
-import java.util.*;
+package pkg.TRPG;
 
-class Trpg {
-    public static void main(Static args[]){-
-        int first=(math.random()*9)+1;
-        int second=(math.random()*9)+1;
-        System.out.println(rollDice(first,second));
+public class Trpg {
+    private Trpg() {
         
     }
 
@@ -37,7 +33,7 @@ class Trpg {
         return returnVal;
     }
 
-    public int rollDice(int first, int second){
+    public static int rollDice(int first, int second){
         System.out.println(Trpg.returnDiceStr(first));
         System.out.println(Trpg.returnDiceStr(second));        
         int x=0;
