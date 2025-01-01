@@ -44,9 +44,26 @@ public class Blackjack{
         board = player.getBoard();
         deck = board.usingDeck();
         dealer.addAll(deck.pullCards(2));
+        //Do the display here
         //3. split (*1 if 21 immediate) or blackjack (*1.5)
-
-        //4. hit, stay, double down
+        if (Blackjack.isBlackjack(player.getRaw())) {
+            //Show player have blackjack
+            if (Blackjack.isBlackjack(dealer)) {
+                //Show it is a tie
+                //Give money back
+                return;
+            }
+            //Show player won
+            // *1.5 and give money back
+            return;
+        }
+        if (Blackjack.isBlackjack(dealer)) {
+            //Show dealer have blackjack
+            //Show player lost
+            //Take money and gone
+            return;
+        }
+        //4. hit, stay, double down, surrender (*0.5)
 
         //5. dealer gets card (17+ stay)
 
@@ -121,5 +138,13 @@ public class Blackjack{
             }
         }
         return sum;
+    }
+
+    public static boolean isBlackjack(ArrayList<Integer> cards) {
+        return Blackjack.maxSum(cards) == 21 && cards.size() == 2;
+    }
+
+    public static boolean splitPoss(ArrayList<Integer> cards) {
+        return cards.size() == 2 && cards.get(0) == cards.get(1);
     }
 }

@@ -56,4 +56,22 @@ public final class Tools {
             }
         }
     }
+
+    public static int askOptions(String introQuestion, String[] questions) {
+        while (true) { 
+            try {
+                System.out.println(introQuestion);
+                for(int i = 0; i < questions.length; i++) {
+                    System.out.println((i + 1)  + ": " + questions[i]);
+                    System.err.print(">> ");
+                    int response = sc.nextInt();
+                    if (response > 0 && response < questions.length + 1) {
+                        return response;
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please try again");
+            }
+        }
+    }
 }

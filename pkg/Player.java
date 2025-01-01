@@ -32,6 +32,14 @@ public class Player {
         this.money += money;
     }
 
+    public int lose(int money) { // 0 is returned if unable to subtract
+        if (money > this.money) {
+            return 0;
+        }
+        this.money -= money;
+        return money;
+    }
+
     public void pullACard() {
         hand.add(usedDeck.pullACard());
         game.updateDeck(usedDeck);
