@@ -145,6 +145,6 @@ public class Blackjack{
     }
 
     public static boolean splitPoss(ArrayList<Integer> cards) {
-        return cards.size() == 2 && cards.get(0) == cards.get(1);
+        return cards.size() == 2 && cards.get(0) % 13 == cards.get(1) % 13;
     }
 }

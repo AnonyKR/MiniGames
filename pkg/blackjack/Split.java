@@ -1,4 +1,5 @@
 package pkg.blackjack;
+
 import java.util.ArrayList;
 
 public class Split {
@@ -25,11 +26,32 @@ public class Split {
         bet = money;
     }
 
+    public Split(int money, int card) {
+        hand = new ArrayList<>();
+        hand.add(card);
+        bet = money;
+    }
+
     public void addBet(int bet) {
         this.bet = bet;
     }
 
     public void newHand(ArrayList<Integer> cards) {
         hand = cards;
+    }
+
+    public void addCard(int card) {
+        hand.add(card);
+    }
+
+    public boolean splitPoss() {
+        return Blackjack.splitPoss(hand);
+    }
+
+    public Split newSplit() {
+        if (this.splitPoss()) {
+            return new Split(this.bet, hand.remove(1));
+        }
+        return null;
     }
 }
