@@ -3,8 +3,8 @@ import java.util.*;
 
 class Trpg {
     public static void main(Static args[]){-
-        int first=(math.random()*6)+1;
-        int second=(math.random()*6)+1;
+        int first=(math.random()*9)+1;
+        int second=(math.random()*9)+1;
         System.out.println(rollDice(first,second));
         
     }
