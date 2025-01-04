@@ -2,6 +2,8 @@ package pkg.TRPG;
 
 =======
 public class Trpg {
+    public int first=(int)(Math.random()*6+1);
+    public int second=(int)(Math.random()*6+1);
     private Trpg() {
         
     }
@@ -34,7 +36,7 @@ public class Trpg {
         return returnVal;
     }
 
-    public static int rollDice(int first, int second){
+    public static int rollDice(){
         System.out.println(Trpg.returnDiceStr(first));
         System.out.println(Trpg.returnDiceStr(second));        
         int x=0;
