@@ -1,9 +1,7 @@
 package pkg.blackjack;
 
 import java.util.ArrayList;
-import pkg.Board;
-import pkg.Deck;
-import pkg.Player;
+import pkg.pokerBasic.*;
 import pkg.Tools;
 
 public class Blackjack{
@@ -74,7 +72,7 @@ public class Blackjack{
 
     public void display() {
         if (currentSet != 0) {
-            
+
         }
     }
 
