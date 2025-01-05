@@ -17,16 +17,16 @@ class starter {
         int intelligence=0;
         //rolls
 		String[] jobs = {"archer", "warrior", "knight"}; //The roles reference is too frequent => make it to array
-		/* 
-        String a=new String("archer");
+		
+        /*String a=new String("archer");
         String b=new String("Archer");
         String c=new String("Warrior");
         String d=new String("warrior");
         String e=new String("Knight");
         String f=new String("knight");
-		*/
+	*/	
         System.out.println("We are going to start by choosing job");
-        System.out.println("What job do you want?");
+        System.out.println("What job do you want?: ");
 		String job = "placeholder";
 		boolean validJob = false;
         while(!validJob /*true*/){ //The loop conditions is changed in order to leave more easily
@@ -35,27 +35,7 @@ class starter {
 			}
 			System.out.print("Choose from archer, warrior, or a knight: ");
         	job = sc.nextLine(); //These lines need to be inside the loop if you want to ask again
-			/*
-                if(a.equals(job)||b.equals(job)){
-                        job="archer";
-                        System.out.println("You chose a archer");
-                        break;
-                }
-                else if(c.equals(job)||d.equals(job)){
-                        job="warrior";
-                        System.out.println("You chose a warrior");
-                        break;
-                }
-                else if(e.equals(job)||f.equals(job)){
-                        job="knight";
-                        System.out.println("You chose a knight");
-                        break;
-        
-                }
-                else{
-                        System.out.println("Choose your job again");
-                }
-			*/ //These lines only check if it matches with the given role, if that is a case, it can be changed into this form (since jobs are now in array)
+			//These lines only check if it matches with the given role, if that is a case, it can be changed into this form (since jobs are now in array)
 			for (int i = 0; i < jobs.length; i++) {
 				if (jobs[i].equals(job.toLowerCase())) {
 					validJob = true;
@@ -71,16 +51,28 @@ class starter {
         System.out.println("Roll the dice say 'roll' ");
         String roll_cmd=sc.nextLine();
         int roll_num=0;
+        //Please check if this works as right declaration array
+        int []stat_result={0,0,0,0,0,0};
         if(job.equals(jobs[0])){ //Use equals method not random name that's not even a string... (also array can be referenced)
+        // Base stat of archer will have little dexterity and health with little mp
+        //Order will be HP,MP,dex,agil,str,int
                 dexterity=2;
+                HP=3;
+                MP=3;
                 if(roll_cmd.equals("roll")){
-                        dexterity= Trpg.rollDice();
-                        System.out.println();
+                        //I believe this is right way to call array
+                        stat_result={Trpg.rollDice()+HP,Trpg.rollDice()+MP,Trpg.rollDice()+dexterity,Trpg.rollDice(),Trpg.rollDice(),Trpg.rollDice()};
 
+                }
+                else{
+                        System.out.print("Error");
                 }
 
         }
         else if(job.equals(jobs[1])){
+
+        }
+        else if(job.equals(jobs[2])){
 
         }
         else {
