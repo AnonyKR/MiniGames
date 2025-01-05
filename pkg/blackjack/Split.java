@@ -58,4 +58,8 @@ public class Split {
     public boolean isBlackjack() {
         return Blackjack.isBlackjack(hand);
     }
+
+    public ArrayList<Integer> getCards() {
+        return hand;
+    }
 }

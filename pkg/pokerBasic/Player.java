@@ -10,10 +10,8 @@ public class Player {
     private Board game;
     private Deck usedDeck;
     private ArrayList<Integer> hand;
-    private Scanner sc;
 
     public Player() {
-        sc = new Scanner(System.in);
         money = 0;
         game = new Board();
         usedDeck = this.game.usingDeck();
@@ -21,7 +19,6 @@ public class Player {
     }
 
     public Player(int money, Board game) {
-        sc = new Scanner(System.in);
         this.money = money;
         this.game = game;
         usedDeck = this.game.usingDeck();

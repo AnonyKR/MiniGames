@@ -72,7 +72,22 @@ public class Blackjack{
 
     public void display() {
         if (currentSet != 0) {
-
+            System.out.print("Dealer: " + Deck.cardIntToStr(dealer.get(0)) + " ??");
+            int loc = 0;
+            while (true) { 
+                if (loc + 1 > sets.length || sets[loc] == null) {
+                    break;
+                }
+                ArrayList<String> toPrint = Deck.cardsIntToStr(sets[loc].getCards());
+                System.out.print("\nSplit " + currentSet + ": ");
+                for (int i = 0; i < toPrint.size(); i++) {
+                    System.out.print(toPrint.get(i) + " ");
+                }
+                if (loc == currentSet - 1) {
+                    System.out.print("<<< Current Set");
+                }
+                loc++;
+            }
         }
     }
 
