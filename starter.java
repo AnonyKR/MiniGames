@@ -1,6 +1,5 @@
-import pkg.TRPG.*;
-import java.util.Random;
 import java.util.Scanner;
+import pkg.TRPG.*;
 
 class starter {
 	public static void main(String args[]) {
@@ -17,17 +16,26 @@ class starter {
         int strength=0;
         int intelligence=0;
         //rolls
+		String[] jobs = {"archer", "warrior", "knight"}; //The roles reference is too frequent => make it to array
+		/* 
         String a=new String("archer");
         String b=new String("Archer");
         String c=new String("Warrior");
         String d=new String("warrior");
         String e=new String("Knight");
         String f=new String("knight");
+		*/
         System.out.println("We are going to start by choosing job");
         System.out.println("What job do you want?");
-        System.out.print("Choose from archer, warrior, or a knight");
-        String job=sc.nextLine();
-        while(true){
+		String job = "placeholder";
+		boolean validJob = false;
+        while(!validJob /*true*/){ //The loop conditions is changed in order to leave more easily
+			if (!job.equals("placeholder")) {
+				System.out.println("Choose your job again"); //This condition ensure that "again" sector only runs after first iteration
+			}
+			System.out.print("Choose from archer, warrior, or a knight: ");
+        	job = sc.nextLine(); //These lines need to be inside the loop if you want to ask again
+			/*
                 if(a.equals(job)||b.equals(job)){
                         job="archer";
                         System.out.println("You chose a archer");
@@ -47,7 +55,15 @@ class starter {
                 else{
                         System.out.println("Choose your job again");
                 }
-
+			*/ //These lines only check if it matches with the given role, if that is a case, it can be changed into this form (since jobs are now in array)
+			for (int i = 0; i < jobs.length; i++) {
+				if (jobs[i].equals(job.toLowerCase())) {
+					validJob = true;
+					job = jobs[i];
+					System.out.println("You chose a " + jobs[i]);
+					break;
+				}
+			}
         }
         
         System.out.println("Now it's time to get your stat");
@@ -55,7 +71,7 @@ class starter {
         System.out.println("Roll the dice say 'roll' ");
         String roll_cmd=sc.nextLine();
         int roll_num=0;
-        if(job=archer){
+        if(job.equals(jobs[0])){ //Use equals method not random name that's not even a string... (also array can be referenced)
                 dexterity=2;
                 if(roll_cmd.equals("roll")){
                         dexterity= Trpg.rollDice();
@@ -64,12 +80,11 @@ class starter {
                 }
 
         }
-        else if(job=warrior){
+        else if(job.equals(jobs[1])){
 
         }
-        else
+        else {
 
-
-
+		}
 	}
 }

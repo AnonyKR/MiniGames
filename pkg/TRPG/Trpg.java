@@ -1,9 +1,9 @@
 package pkg.TRPG;
 
-=======
+//=======  (??? what are these equal signs for ???)
 public class Trpg {
-    public int first=(int)(Math.random()*6+1);
-    public int second=(int)(Math.random()*6+1);
+    //public int first=(int)(Math.random()*6+1);
+    //public int second=(int)(Math.random()*6+1);
     private Trpg() {
         
     }
@@ -36,13 +36,12 @@ public class Trpg {
         return returnVal;
     }
 
-    public static int rollDice(){
+    public static int rollDice(){ // the random number must be either static or defined within the method in order to be used in static method
+        int first = (int)(Math.random()*6+1);
+        int second = (int)(Math.random()*6+1);
         System.out.println(Trpg.returnDiceStr(first));
         System.out.println(Trpg.returnDiceStr(second));        
-        int x=0;
-        x=first+second;
+        int x = first + second;
         return x;
-
-        
     }
 }
