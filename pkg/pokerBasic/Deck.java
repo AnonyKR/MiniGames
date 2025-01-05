@@ -1,4 +1,4 @@
-package pkg;
+package pkg.pokerBasic;
 
 import java.util.ArrayList;
 import java.util.Collections;

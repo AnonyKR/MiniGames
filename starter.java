@@ -1,4 +1,4 @@
-import pkg.*;
+import pkg.pokerBasic.Player;
 
 class starter {
 	public static void main(String args[]) {
