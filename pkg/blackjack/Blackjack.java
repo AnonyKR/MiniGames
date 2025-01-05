@@ -11,6 +11,8 @@ public class Blackjack{
     private Board board;
     private ArrayList<Integer> dealer;
     private Deck deck;
+    private Split[] sets;
+    private int currentSet;
 
     public Blackjack() {
         player = new Player();
@@ -38,15 +40,15 @@ public class Blackjack{
 
     public void playRound() {
         //1. betting
-        player.bet(Tools.askInt("How much would you like to bet? (int)"));
+        int roundBet = Tools.askInt("How much would you like to bet? (int)");
         //2. cards given
-        player.pullCards(2);
-        board = player.getBoard();
-        deck = board.usingDeck();
+        sets = new Split[4]; // this 4 is due to 4 splits being the limitation for the splits for blackjack
+        currentSet = 0;
+        sets[0] = new Split(roundBet, deck.pullCards(2));
         dealer.addAll(deck.pullCards(2));
         //Do the display here
-        //3. split (*1 if 21 immediate) or blackjack (*1.5)
-        if (Blackjack.isBlackjack(player.getRaw())) {
+        //3. split (*1 if 21 immediate) (4 max) or blackjack (*1.5)
+        if (sets[0].isBlackjack()) {
             //Show player have blackjack
             if (Blackjack.isBlackjack(dealer)) {
                 //Show it is a tie
@@ -68,6 +70,12 @@ public class Blackjack{
         //5. dealer gets card (17+ stay)
 
         //6. get money
+    }
+
+    public void display() {
+        if (currentSet != 0) {
+            
+        }
     }
 
     public void play() {

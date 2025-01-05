@@ -43,7 +43,7 @@ public class Deck {
 			default:
 				shape = "error";
 		}
-		shape += " ";
+		shape += "";
 		switch(card % 13) {
 			case 9:
 				shape += "J";
@@ -61,6 +61,14 @@ public class Deck {
 				shape += (card % 13 + 2);
 		}
 		return shape;
+	}
+
+	public static ArrayList<String> cardsIntToStr(ArrayList<Integer> cards) {
+		ArrayList<String> returnArraylist = new ArrayList<>();
+		for (int i = 0; i < cards.size(); i++) {
+			returnArraylist.add(Deck.cardIntToStr(cards.get(i)));
+		}
+		return returnArraylist;
 	}
 	
 	public void shuffle() {

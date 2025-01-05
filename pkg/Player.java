@@ -40,6 +40,14 @@ public class Player {
         return money;
     }
 
+    public boolean betPoss(int money) {
+        if (this.money >= money) {
+            this.money -= money;
+            return true;
+        }
+        return false;
+    }
+
     public void pullACard() {
         hand.add(usedDeck.pullACard());
         game.updateDeck(usedDeck);

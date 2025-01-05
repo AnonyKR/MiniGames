@@ -54,4 +54,8 @@ public class Split {
         }
         return null;
     }
+
+    public boolean isBlackjack() {
+        return Blackjack.isBlackjack(hand);
+    }
 }
