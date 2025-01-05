@@ -1,4 +1,4 @@
-package pkg;
+package pkg.pokerBasic;
 
 public class Board {
     private Deck dealer; 
