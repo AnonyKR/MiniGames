@@ -1,4 +1,5 @@
 package pkg;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -11,6 +12,7 @@ public class Deck {
 		for (int i = 0; i < 52; i++) {
 			this.cards.add(i);
 		}
+		this.shuffle();
 	}
 	
 	public Deck(int setsOfDecks) {
@@ -20,26 +22,28 @@ public class Deck {
 			for (int j = 0; j < setsOfDecks; j++)
 				this.cards.add(i);
 		}
+		this.shuffle();
 	}
 	
 	public static String cardIntToStr(int card) {
 		String shape;
-		switch(card / 13) {
+		switch(card / 13) { // Using unicode later since it doesn't work for me...
 			case 0:
-				shape = "\u2660"; //spade filled
+				shape = "S";//"\u2660"; //spade filled
 				break;
 			case 1:
-				shape = "\u2663"; //clubs filled
+				shape = "C"; //"\u2663"; //clubs filled
 				break;
 			case 2:
-				shape = "\u2661"; //heart empty
+				shape = "H"; //\u2661"; //heart empty
 				break;
 			case 3:
-				shape = "\u2662"; //diamond empty
+				shape = "D"; //"\u25c7"; //diamond empty
 				break;
 			default:
 				shape = "error";
 		}
+		shape += "";
 		switch(card % 13) {
 			case 9:
 				shape += "J";
@@ -54,9 +58,17 @@ public class Deck {
 				shape += "A";
 				break;
 			default:
-				shape += (card + 2);
+				shape += (card % 13 + 2);
 		}
 		return shape;
+	}
+
+	public static ArrayList<String> cardsIntToStr(ArrayList<Integer> cards) {
+		ArrayList<String> returnArraylist = new ArrayList<>();
+		for (int i = 0; i < cards.size(); i++) {
+			returnArraylist.add(Deck.cardIntToStr(cards.get(i)));
+		}
+		return returnArraylist;
 	}
 	
 	public void shuffle() {
