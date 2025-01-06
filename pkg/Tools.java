@@ -106,6 +106,17 @@ public final class Tools {
         }
     }
 
+    public static int askInt(String question, int min) {
+        while (true) {
+            double answer = Tools.askDouble(question);
+            if (answer - ((int) answer) == 0.0 && answer > min) {
+                return (int) answer;
+            } else {
+                System.out.println("Invalid input. Please try again");
+            }
+        }
+    }
+
     public static int askOptions(String introQuestion, String[] questions) {
         while (true) { 
             try {

@@ -38,22 +38,24 @@ public class Blackjack{
 
     public void playRound() {
         //1. betting
-        int roundBet = Tools.askInt("How much would you like to bet? (int)");
+        int roundBet = Tools.askInt("How much would you like to bet? (int)", player.getMoney());
+        player.lose(roundBet);
         //2. cards given
         sets = new Split[4]; // this 4 is due to 4 splits being the limitation for the splits for blackjack
         currentSet = 0;
         sets[0] = new Split(roundBet, deck.pullCards(2));
         dealer.addAll(deck.pullCards(2));
-        //Do the display here
+        this.display();
         //3. split (*1 if 21 immediate) (4 max) or blackjack (*1.5)
         if (sets[0].isBlackjack()) {
-            //Show player have blackjack
+            System.out.println("You got a blackjack!");
             if (Blackjack.isBlackjack(dealer)) {
-                //Show it is a tie
-                //Give money back
+                System.out.println("\nDealer also got blackjack...");
+                System.out.println("It is a tie");
+                player.gain(roundBet);
                 return;
             }
-            //Show player won
+            System.out.println("\nYou won!");
             // *1.5 and give money back
             return;
         }
@@ -83,10 +85,22 @@ public class Blackjack{
                 for (int i = 0; i < toPrint.size(); i++) {
                     System.out.print(toPrint.get(i) + " ");
                 }
+                System.out.print(" Sum: " + Blackjack.sum(sets[loc].getCards()));
                 if (loc == currentSet - 1) {
                     System.out.print("<<< Current Set");
                 }
                 loc++;
+            }
+        } else {
+            ArrayList<String> toPrint = Deck.cardsIntToStr(dealer);
+            System.out.print("Dealer: ");
+            for (int i = 0; i < toPrint.size(); i++) {
+                System.out.print(toPrint.get(i) + " ");
+            }
+            System.out.println(" Sum: " + Blackjack.sum(dealer));
+            int loc = 0;
+            while(sets[loc] != null) {
+                System.out.println("Split " + (loc + 1) + " Sum : " + Blackjack.sum(sets[loc].getCards()));
             }
         }
     }
