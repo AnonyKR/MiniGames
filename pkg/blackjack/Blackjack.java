@@ -1,8 +1,8 @@
 package pkg.blackjack;
 
 import java.util.ArrayList;
-import pkg.pokerBasic.*;
 import pkg.Tools;
+import pkg.pokerBasic.*;
 
 public class Blackjack{
     private Player player;
@@ -56,13 +56,12 @@ public class Blackjack{
                 return;
             }
             System.out.println("\nYou won!");
-            // *1.5 and give money back
+            player.gain(roundBet + roundBet / 2);
             return;
         }
         if (Blackjack.isBlackjack(dealer)) {
-            //Show dealer have blackjack
-            //Show player lost
-            //Take money and gone
+            System.out.println("Dealer got a balckjack");
+            System.out.println("\nYou lost your bet");
             return;
         }
         //4. hit, stay, double down, surrender (*0.5)
