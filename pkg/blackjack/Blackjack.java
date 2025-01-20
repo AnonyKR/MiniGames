@@ -38,10 +38,11 @@ public class Blackjack{
 
     public void playRound() {
         //1. betting
-        int roundBet = Tools.askInt("How much would you like to bet? (int)", player.getMoney());
+        int roundBet = Tools.askInt("How much would you like to bet? (int) : ", player.getMoney());
         player.lose(roundBet);
         //2. cards given
         sets = new Split[4]; // this 4 is due to 4 splits being the limitation for the splits for blackjack
+        int splitNums = 1;
         currentSet = 0;
         sets[0] = new Split(roundBet, deck.pullCards(2));
         dealer.addAll(deck.pullCards(2));
@@ -64,6 +65,23 @@ public class Blackjack{
             System.out.println("\nYou lost your bet");
             return;
         }
+        while (currentSet <= splitNums - 1) {
+            if (player.betPoss(roundBet) && sets[currentSet].splitPoss() && splitNums < 4) {
+                if (Tools.askYesOrNo("Would you like to split your cards?")) {
+                    splitNums++;
+                    sets[splitNums - 1] = sets[currentSet].newSplit();
+                    player.lose(roundBet);
+                    sets[currentSet].addCard(deck.pullACard());
+                    sets[splitNums - 1].addCard(deck.pullACard());
+                } else {
+                    currentSet++;
+                }
+            } else {
+                currentSet++;
+            }
+            this.display();
+        }
+        currentSet = 0;
         //4. hit, stay, double down, surrender (*0.5)
 
         //5. dealer gets card (17+ stay)
@@ -72,7 +90,7 @@ public class Blackjack{
     }
 
     public void display() {
-        if (currentSet != 0) {
+        if (currentSet != 4) {
             System.out.print("Dealer: " + Deck.cardIntToStr(dealer.get(0)) + " ??");
             int loc = 0;
             while (true) { 

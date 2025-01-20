@@ -1,9 +1,8 @@
-import pkg.pokerBasic.Player;
+import pkg.blackjack.Blackjack;
 
 class starter {
 	public static void main(String args[]) {
-		Player me = new Player();
-		me.pullCards(5);
-		me.showHand();
+		Blackjack game = new Blackjack();
+		game.play();
 	}
 }

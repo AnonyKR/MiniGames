@@ -3,7 +3,6 @@ package pkg.pokerBasic;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Scanner;
 
 public class Player {
     private int money;
@@ -12,7 +11,7 @@ public class Player {
     private ArrayList<Integer> hand;
 
     public Player() {
-        money = 0;
+        money = 100;
         game = new Board();
         usedDeck = this.game.usingDeck();
         hand = new ArrayList<>();

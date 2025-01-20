@@ -44,7 +44,9 @@ public final class Tools {
         while(true) {
             try {
                 System.out.print(question);
-                return sc.nextDouble();
+                double temp = sc.nextDouble();
+                sc.nextLine();
+                return temp;
             } catch (Exception e) {
                 System.out.println("Invalid input. Please try again");
             }
@@ -55,7 +57,9 @@ public final class Tools {
         while(true) {
             try {
                 System.out.print(question);
-                return sc.nextDouble();
+                double temp = sc.nextDouble();
+                sc.nextLine();
+                return temp;
             } catch (Exception e) {
                 System.out.println(error);
             }
@@ -106,10 +110,10 @@ public final class Tools {
         }
     }
 
-    public static int askInt(String question, int min) {
+    public static int askInt(String question, int max) {
         while (true) {
             double answer = Tools.askDouble(question);
-            if (answer - ((int) answer) == 0.0 && answer > min) {
+            if (answer - ((int) answer) == 0.0 && answer < max) {
                 return (int) answer;
             } else {
                 System.out.println("Invalid input. Please try again");
