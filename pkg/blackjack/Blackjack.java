@@ -85,7 +85,9 @@ public class Blackjack{
         }
         currentSet = 0;
         //4. hit, stay, double down, surrender (*0.5)
-
+        while (true) { 
+            
+        }
         //5. dealer gets card (17+ stay)
 
         //6. get money
