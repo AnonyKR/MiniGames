@@ -43,12 +43,13 @@ public class Blackjack{
         //2. cards given
         sets = new Split[4]; // this 4 is due to 4 splits being the limitation for the splits for blackjack
         int splitNums = 1;
-        currentSet = 0;
+        currentSet = 0; // 0-3 is index / player and 4 is dealer
+        ArrayList<Integer> tempList = new ArrayList<Integer>();
         sets[0] = new Split(roundBet, deck.pullCards(2));
         dealer.addAll(deck.pullCards(2));
-        this.display();
         //3. split (*1 if 21 immediate) (4 max) or blackjack (*1.5)
         if (sets[0].isBlackjack()) {
+            this.display();
             System.out.println("You got a blackjack!");
             if (Blackjack.isBlackjack(dealer)) {
                 System.out.println("\nDealer also got blackjack...");
@@ -61,13 +62,15 @@ public class Blackjack{
             return;
         }
         if (Blackjack.isBlackjack(dealer)) {
+            this.display();
             System.out.println("Dealer got a balckjack");
             System.out.println("\nYou lost your bet");
             return;
         }
         while (currentSet <= splitNums - 1) {
             if (player.betPoss(roundBet) && sets[currentSet].splitPoss() && splitNums < 4) {
-                if (Tools.askYesOrNo("Would you like to split your cards?")) {
+                this.display();
+                if (Tools.askYesOrNo("Would you like to split your cards? (y/n) : ")) {
                     splitNums++;
                     sets[splitNums - 1] = sets[currentSet].newSplit();
                     player.lose(roundBet);
@@ -79,7 +82,6 @@ public class Blackjack{
             } else {
                 currentSet++;
             }
-            this.display();
         }
         currentSet = 0;
         //4. hit, stay, double down, surrender (*0.5)
@@ -91,7 +93,7 @@ public class Blackjack{
 
     public void display() {
         if (currentSet != 4) {
-            System.out.print("Dealer: " + Deck.cardIntToStr(dealer.get(0)) + " ??");
+            System.out.print("\nDealer: " + Deck.cardIntToStr(dealer.get(0)) + " ??");
             int loc = 0;
             while (true) { 
                 if (loc + 1 > sets.length || sets[loc] == null) {
@@ -103,14 +105,14 @@ public class Blackjack{
                     System.out.print(toPrint.get(i) + " ");
                 }
                 System.out.print(" Sum: " + Blackjack.sum(sets[loc].getCards()));
-                if (loc == currentSet - 1) {
-                    System.out.print("<<< Current Set");
+                if (loc == currentSet) {
+                    System.out.print("  <<< Current Set");
                 }
                 loc++;
             }
         } else {
             ArrayList<String> toPrint = Deck.cardsIntToStr(dealer);
-            System.out.print("Dealer: ");
+            System.out.print("\nDealer: ");
             for (int i = 0; i < toPrint.size(); i++) {
                 System.out.print(toPrint.get(i) + " ");
             }
@@ -120,6 +122,7 @@ public class Blackjack{
                 System.out.println("Split " + (loc + 1) + " Sum : " + Blackjack.sum(sets[loc].getCards()));
             }
         }
+        System.out.println("");
     }
 
     public void play() {
