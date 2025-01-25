@@ -2,8 +2,13 @@ import pkg.LetterToWord.*;
 
 class starter {
         public static void main(String args[]) {
-                listWord testAll = new listWord(5, 4);
-                String[] anList = {"a", "a", "an", "an"};
+                listWord testAll = new listWord();
+                String[] names = { "yunu choi", "kirin choi", "bobby brown", "edward elric", "bokyung kim"};
+                for (String name: names) {
+                        testAll.addName(name);
+                }
+                /*
+                String[] anList = {"y", "yu", "c", "ch"};
                 String[] bnList = {"l", "la", "r", "ra"};
                 String[] cnList = {"s", "se", "n", "ne"};
                 String[] dnList = {"f", "fr", "p", "pr"};
@@ -13,6 +18,7 @@ class starter {
                 testAll.fillLetter(cnList, 2);
                 testAll.fillLetter(dnList, 3);
                 testAll.fillLetter(enList, 4);
+                 */
                 System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n");
                 testAll.checkAll();
                 System.out.println();
